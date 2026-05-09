@@ -18,6 +18,7 @@ import {
   Award,
   Calendar
 } from 'lucide-react';
+import { Analytics } from '@vercel/analytics/react';
 
 // --- Shared Components ---
 
@@ -741,6 +742,7 @@ const App = () => {
       <Divider />
       <Contact />
       <Footer />
+      <Analytics />
     </div>
   );
 };
