@@ -1,0 +1,67 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --primary: #0c0a09;
+    --accent: #f59e0b;
+    --surface: #1c1917;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-[#0c0a09] text-white antialiased overflow-x-hidden font-sans;
+  }
+  
+  ::selection {
+    @apply bg-accent/30 text-primary-900;
+  }
+}
+
+.grain {
+  position: relative;
+}
+
+.grain::after {
+  content: "";
+  position: absolute;
+  top: -100%;
+  left: -100%;
+  width: 300%;
+  height: 300%;
+  background-image: url("https://grainy-gradients.vercel.app/noise.svg");
+  opacity: 0.05;
+  pointer-events: none;
+  animation: noise 1s steps(2) infinite;
+  z-index: 1;
+}
+
+@keyframes noise {
+  0% { transform: translate(0, 0); }
+  10% { transform: translate(-5%, -5%); }
+  20% { transform: translate(-10%, 5%); }
+  30% { transform: translate(5%, -10%); }
+  40% { transform: translate(-5%, 15%); }
+  50% { transform: translate(-10%, 5%); }
+  60% { transform: translate(15%, 0); }
+  70% { transform: translate(0, 10%); }
+  80% { transform: translate(-15%, 0); }
+  90% { transform: translate(10%, 5%); }
+  100% { transform: translate(5%, 0); }
+}
+
+.glass {
+  @apply backdrop-blur-md bg-black/70 border-b border-white/10;
+}
+
+.text-balance {
+  text-wrap: balance;
+}
+
+.divider {
+  @apply h-[1px] w-24 mx-auto bg-gradient-to-r from-transparent via-accent/30 to-transparent my-20;
+}
